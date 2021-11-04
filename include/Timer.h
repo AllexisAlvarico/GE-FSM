@@ -17,7 +17,7 @@ public:
     };
     float getTimer()
     {
-        return getTicks() / 100.0;
+        return getTicks() / 1000.0;
     };
 
     uint32_t getTicks() {return SDL_GetTicks() - m_timer;}
