@@ -10,9 +10,10 @@ Player::Player(const AnimatedSprite& t_sprite) : m_animated_sprite(t_sprite)
 	// and Enter that State
 	m_state = new IdlePlayerState();
 	m_state->enter(*this);
+	// set positions
+	m_position.x = 0.0f;
+	m_position.y = 0.0f;
 }
-
-
 
 void Player::handleInput(gpp::Events t_input) {
 	PlayerState * state = m_state->handleInput(t_input);
@@ -50,4 +51,5 @@ void Player::setPlayerState(PlayerState* t_state) { this->m_state = t_state; }
 
 void Player::render(SDL_Renderer* t_renderer){
 
+	getAnimatedSpriteFrame().render(m_position.x, m_position.y, t_renderer);
 }

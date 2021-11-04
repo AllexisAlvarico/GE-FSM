@@ -55,7 +55,7 @@ void AnimatedSprite::clearFrames() {
 
 void AnimatedSprite::setTextureRect(SDL_Rect t_rect)
 {
-	
+	m_rect = t_rect;
 }
 
 const SDL_Rect& AnimatedSprite::getFrame(int t_n) {
@@ -106,5 +106,11 @@ void AnimatedSprite::update(){
 		}
 	}
 	
+}
+
+void AnimatedSprite::render(float x, float y, SDL_Renderer* t_renderer){
+
+	SDL_FRect renderQuad = { x, y, static_cast<float>(m_rect.w), static_cast<float>(m_rect.h) };
+	SDL_RenderCopyF(t_renderer, m_texture, &m_rect, &renderQuad);
 }
 

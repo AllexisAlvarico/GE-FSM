@@ -44,6 +44,7 @@ private:
 	unsigned int m_play_count;
 	unsigned int m_max_plays;
 	bool m_played;
+	SDL_Rect m_rect;
 };
 
 #endif // !ANIMATED_SPRITE_H

@@ -4,12 +4,16 @@
 #include "PlayerState.h"
 #include "AnimatedSprite.h"
 
+struct Vector2f
+{
+	float x, y;
+};
+
 class Player
 {
 private:
 	PlayerState* m_state;
 	AnimatedSprite m_animated_sprite;
-
 public:
 	Player(const AnimatedSprite& t_sprite);
 	virtual void handleInput(gpp::Events t_input);
@@ -20,6 +24,7 @@ public:
 	PlayerState* getPlayerState();
 	void setPlayerState(PlayerState* t_state);
 	void render(SDL_Renderer* t_renderer);
+	Vector2f m_position;
 };
 #endif
 
